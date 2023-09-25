@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>публикации</h1>
+  <ul>
+    {% for task in tasks %}
+      <li>
+        {{ task.title }}
+        <a href="{% url 'task_edit' task.pk %}">Редактировать</a>
+        <a href="{% url 'task_delete' task.pk %}">Удалить</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'task_add' %}">Добавить публикацию</a>
+{% endblock %}
